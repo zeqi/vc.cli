@@ -1,0 +1,40 @@
+{
+  "Server": {
+    "platform": "foor",
+    "host": "0.0.0.0",
+    "port": 7105,
+    "version": "v1.0.0",
+    "SESSION_COOKIE_DOMAIN": "",
+    "SESSION_COOKIE_SIGN_KEY": "ZGVmYXVsdC5zbWFydC5kYXNoYm9hcmQ=",
+    "SESSION_TIMEOUT": 1200000,
+    "maxAge": 3600,
+    "static": "dist",
+    "mainPage": "dist/index.html",
+    "sessionStore": {
+      "size": 10,
+      "network": "tcp",
+      "host": "redis-master.redis",
+      "port": 6379,
+      "db": 2,
+      "password": "123123"
+    }
+  },
+  "BasicAuth": {
+    "Accounts": {
+      "smart": "136de7a0af6190eb89a87e4ddf8577c8"
+    },
+    "Version": "v1.0.0",
+    "Prefix": "api"
+  },
+  "MicroServices": {
+    "MicroMongo": {
+      "Name": "vc-svc",
+      "Etcd": {
+        "addrs": ""
+      }
+    },
+    "MicroApi": {
+      "Name": "vc-cli"
+    }
+  }
+}
