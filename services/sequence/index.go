@@ -26,7 +26,7 @@ func (o *Service) Create(name string, comments string) (*pb.ResDoc, error) {
 }
 
 func (o *Service) FInd(skip int64, limit int64) (*pb.ResDocs, error) {
-	rsp, err := o.Client.Find(context.Background(), &pb.ReqFind{Skip: skip, Limit: limit, Condition: &pb.Model{Name: "sunqi"}})
+	rsp, err := o.Client.Find(context.Background(), &pb.ReqFind{Skip: skip, Limit: limit, Condition: &pb.Model{}})
 	if err != nil {
 		fmt.Errorf("Sequence FInd Error %s", err)
 		return rsp, err
@@ -35,7 +35,7 @@ func (o *Service) FInd(skip int64, limit int64) (*pb.ResDocs, error) {
 }
 
 func (o *Service) FindDocsAndCount(skip int64, limit int64) (*pb.ResDocsAndCount, error) {
-	rsp, err := o.Client.FindDocsAndCount(context.Background(), &pb.ReqFind{Skip: skip, Limit: limit, Condition: &pb.Model{Name: "sunqi"}})
+	rsp, err := o.Client.FindDocsAndCount(context.Background(), &pb.ReqFind{Skip: skip, Limit: limit, Condition: &pb.Model{}})
 	if err != nil {
 		fmt.Errorf("Sequence FindDocsAndCount Error %s", err)
 		return rsp, err

@@ -4,7 +4,7 @@ metadata:
   namespace: default
   name: vc-cli
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: vc-cli
@@ -15,12 +15,29 @@ spec:
     spec:
       containers:
         - name: vc-cli
+          env:
+          - name: GOPATH
+            value: /go:$GOPATH
+          - name: GO_ENV
+            value: default
+          - name: GIN_MODE
+            value: release
+          command: [
+            "/go/src/vc.cli/vc-cli",
+            # "--selector=static",
+            "--server_address=0.0.0.0:8080",
+            "--broker_address=0.0.0.0:10001",
+            "--registry=kubernetes"
+          ]
           image: zeqi/vc-cli:0.1.0
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 7105
             protocol: TCP
             name: http
+          - containerPort: 8080
+            protocol: TCP
+            name: tcp
 ---
 apiVersion: v1
 kind: Service

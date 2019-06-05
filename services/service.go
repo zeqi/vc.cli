@@ -6,7 +6,9 @@ import (
 
 	// "github.com/micro/go-grpc"
 
+	// "github.com/micro/go-grpc"
 	"github.com/micro/go-micro"
+
 	k8s "github.com/micro/kubernetes/go/micro"
 
 	// "github.com/micro/go-plugins/registry/kubernetes"
@@ -40,8 +42,8 @@ func (o *Client) InitService(config models.MicroConfig) {
 	// 	op.Addrs = strings.Split(config.Etcd.Addrs, ",")
 	// })
 	service := k8s.NewService(
-		micro.Name("vc-cli"),
-		// micro.Version("latest"),
+		micro.Name(config.Name),
+		micro.Version(config.Version),
 		micro.RegisterTTL(time.Second*30),
 		micro.RegisterInterval(time.Second*15),
 	// micro.Registry(r),

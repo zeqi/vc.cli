@@ -29,6 +29,7 @@
   "MicroServices": {
     "MicroMongo": {
       "Name": "vc-svc",
+      "Version": "latest",
       "Etcd": {
         "addrs": ""
       }

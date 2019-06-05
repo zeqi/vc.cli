@@ -28,8 +28,9 @@ type Etcd struct {
 }
 
 type MicroConfig struct {
-	Name string
-	Etcd Etcd
+	Name    string
+	Version string
+	Etcd    Etcd
 }
 
 type MicroServices struct {
