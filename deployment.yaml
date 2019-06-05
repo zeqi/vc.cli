@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: vc-cli
+        version: v1
     spec:
       containers:
         - name: vc-cli
@@ -48,11 +49,16 @@ metadata:
   namespace: default
 spec:
   ports:
-    - port: 80
-      targetPort: 7105
-      name: http
+  - port: 80
+    targetPort: 7105
+    name: http
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: tcp
   selector:
     app: vc-cli
+    version: v1
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
