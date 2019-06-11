@@ -5,14 +5,10 @@ import (
 	"time"
 
 	// "github.com/micro/go-grpc"
-
-	// "github.com/micro/go-grpc"
-	"github.com/micro/go-micro"
-
-	k8s "github.com/micro/kubernetes/go/micro"
-
 	// "github.com/micro/go-plugins/registry/kubernetes"
 	// k8s "github.com/micro/kubernetes/go/micro"
+	"github.com/micro/go-micro"
+	k8s "github.com/micro/kubernetes/go/micro"
 	"vc.cli/models"
 	pb_sequence "vc.pb/sequence"
 )
