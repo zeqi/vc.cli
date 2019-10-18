@@ -41,7 +41,7 @@ func (o *Client) InitService(config models.MicroConfig) {
 	// })
 	service := grpc.NewService(
 		micro.Name(config.Name),
-		// micro.Version(config.Version),
+		micro.Version(config.Version),
 		micro.RegisterTTL(time.Second*30),
 		micro.RegisterInterval(time.Second*15),
 	// micro.Registry(r),
