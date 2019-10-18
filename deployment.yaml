@@ -4,7 +4,7 @@ metadata:
   namespace: default
   name: vc-cli
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: vc-cli
@@ -47,6 +47,8 @@ metadata:
     app: vc-cli
   name: vc-cli
   namespace: default
+
+  
 spec:
   ports:
   - port: 80
