@@ -21,3 +21,4 @@ smart.data
 nohup.out
 gopath
 vc-cli
+__debug_bin
