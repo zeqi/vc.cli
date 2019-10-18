@@ -7,8 +7,10 @@ import (
 	// "github.com/micro/go-grpc"
 	// "github.com/micro/go-plugins/registry/kubernetes"
 	// k8s "github.com/micro/kubernetes/go/micro"
+	"github.com/micro/go-grpc"
 	"github.com/micro/go-micro"
-	k8s "github.com/micro/kubernetes/go/micro"
+
+	// k8s "github.com/micro/kubernetes/go/micro"
 	"vc.cli/models"
 	pb_sequence "vc.pb/sequence"
 )
@@ -37,9 +39,9 @@ func (o *Client) InitService(config models.MicroConfig) {
 	// r := etcdv3.NewRegistry(func(op *registry.Options) {
 	// 	op.Addrs = strings.Split(config.Etcd.Addrs, ",")
 	// })
-	service := k8s.NewService(
+	service := grpc.NewService(
 		micro.Name(config.Name),
-		micro.Version(config.Version),
+		// micro.Version(config.Version),
 		micro.RegisterTTL(time.Second*30),
 		micro.RegisterInterval(time.Second*15),
 	// micro.Registry(r),
@@ -52,6 +54,7 @@ func (o *Client) InitService(config models.MicroConfig) {
 	// 		Value:       config.Name,
 	// 		Destination: &sequenceService,
 	// 	}))
+	// service.Init()
 	o.MicroApi = service
 
 }
