@@ -48,8 +48,7 @@ func (o *Registrar) initService(config models.MicroConfig) {
 		micro.Version(config.Version),
 		micro.RegisterTTL(time.Minute),
 		micro.RegisterInterval(time.Second*30),
-		// micro.WrapClient(logWrap),
-		// micro.WrapClient()
+		micro.WrapClient(logWrap),
 	// micro.Registry(r),
 	// micro.Selector(static.NewSelector()),
 	)
@@ -61,8 +60,12 @@ func (o *Registrar) initService(config models.MicroConfig) {
 	// 		Destination: &sequenceService,
 	// 	}))
 	// service.Init()
-	o.MicroApi = service
+	// // Run the server
+	// if err := service.Run(); err != nil {
+	// 	fmt.Println(err)
+	// }
 
+	o.MicroApi = service
 }
 
 func (o *Registrar) initClient(config models.MicroConfig) {

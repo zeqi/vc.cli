@@ -19,9 +19,9 @@ func Handlers(version string, basicAuth models.BasicAuth, router *gin.Engine) {
 	sequence.Register(group)
 
 	// Basic Auth validation
+	basePath := basicAuth.Prefix + "/" + basicAuth.Version
 	accounts := gin.Accounts{}
 	accounts = basicAuth.Accounts
-	basePath := basicAuth.Prefix + "/" + basicAuth.Version
 	basicAuthGroup := router.Group(basePath, gin.BasicAuth(accounts))
 
 	sequence.Register(basicAuthGroup)
